@@ -1,0 +1,29 @@
+.body {
+    font-family: 'Lato', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-image: url(../images/landscape2.jpg);
+    background-size: cover;
+    background-position: center;
+}
+.js-body {
+    background-color: white;
+}
+.js-body--size {
+    font-size: small;
+    background-color: yellow;
+}
+.header {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    text-transform: uppercase;
+}
+.footer{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 16px;
+    text-align: center;
+    padding: 10px;
+    margin-top: 5px;
+}

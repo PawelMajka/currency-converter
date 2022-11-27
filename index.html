@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kantor</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+        integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/body.css">
+    <link rel="stylesheet" href="css/form.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <script defer src="js/script.js"></script>
+</head>
+
+<body class="body">
+    <div class=container>
+        <h1 class="header">Kalkulator walut</h1>
+        <form class="form js-form">
+            <fieldset class="form__fieldset">
+                <legend class="form__legend">Przelicznik walut </legend>
+                <p>
+                    <label>
+                        <span class="form__labelText">Twoja kwota (PLN)*:
+                        </span>
+                        <input class="form__field js-amountOfMany" name="amount of many" type="number" placeholder="PLN"
+                            min="1" step="0.01" required autofocus>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <span class="form__labelText"> Oczekiwana waluta:
+                        </span>
+                        <select class="form__field js-toAmount" name="to Amount">
+                            <option value="GBP"> GBP </option>
+                            <option value="USD"> USD </option>
+                            <option value="EUR"> EUR </option>
+                            <option value="PLN"> PLN </option>
+                        </select>
+                    </label>
+                </p>
+                <p>
+                    <input class="form__button js-reset" type="reset" value="Wyczyść">
+                    <button class="form__button js-submit">Przelicz
+                    </button>
+                </p>
+                <p>Wynik: <strong class="js-result">N/A</strong>
+                </p>
+                <p>Kurs: <strong class="js-exchangeRate"></strong></p>
+                <P>*-pole wymagane</P>
+            </fieldset>
+        </form>
+        <footer class="footer">
+            &copy; Copyright 2022 - wszystkie prawa zastrzeżone!!!
+        </footer>
+    </div>
+</body>
+
+</html>

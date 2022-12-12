@@ -17,4 +17,4 @@ https://pawelmajka.github.io/currency-converter/
 This simple site presents a simle currency calculator. It calculates PLN to GBP/USD/EUR/PLN.
 
 ## Prieview
-![Demo animation](images/animation-currency-converter.gif)
+![Demo animation](images/animation-currency-converter.gif/)

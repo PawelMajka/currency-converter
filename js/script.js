@@ -1,36 +1,71 @@
-console.log("Cześć Wszystkim! Poniżej moja praca domowa z M04 kalkulator walut");
 {
-let amountElement = document.querySelector(".js-amountOfMany");
-let toElement = document.querySelector(".js-toAmount");
-let formElement = document.querySelector(".js-form");
-let resultElement = document.querySelector(".js-result");
-let exchangeRateElement = document.querySelector(".js-exchangeRate");
+    const welcome = () => {
+        console.log("Cześć Wszystkim! Poniżej moja praca domowa z M05 kalkulator walut"); 
+    }
 
-let GBP = 5.28;
-let USD = 4.64;
-let EUR = 4.72;
-let PLN = 1;
+    const rateGBP = 5.28;
+    const rateUSD = 4.64;
+    const rateEUR = 4.72;
+    const ratePLN = 1;
 
-formElement.addEventListener("submit", (event) => {  
-    event.preventDefault();  //blocking form send
+    const exchangeRate = (currency) => {
+        switch  (currency) {
+            case "PLN":
+                return ratePLN;
+            case "USD":
+                return rateUSD;
+            case "EUR":
+                return rateEUR;
+            case "GBP":
+                return rateGBP;
+        };   
+    };
 
-    let amount = amountElement.value;
-    let exchangeRate = toElement.value;
+    const calculateResult = (amount, currency) => {
+        switch (currency) {
+            case "PLN":
+                return amount / ratePLN;
+            case "USD":
+                return amount / rateUSD;
+            case "EUR":
+                return amount / rateEUR;
+            case "GBP":
+                return amount / rateGBP;
+        };       
+    };
 
-    switch (exchangeRate) {
-        case "PLN":
-            result = amount / PLN;
-            exchangeRateElement.innerText = PLN;
-        case "USD":
-                result = amount / USD;
-                exchangeRateElement.innerText = USD;
-        case "EUR":
-            result = amount / EUR;
-            exchangeRateElement.innerText = EUR;
-        case "GBP":
-            result = amount / GBP;
-            exchangeRateElement.innerText = GBP;  
-    }       
-    resultElement.innerHTML = `${result.toFixed(2)} ${exchangeRate}`;
-})
+    const updateResultsText = (amount, result, currency) => {
+        const resultElement = document.querySelector(".js-result");
+        resultElement.innerHTML = `${amount.toFixed(2)} PLN = ${result.toFixed(2)} ${currency}`;
+    };
+
+    const updateRateText = (rateElement) => {
+        const exchangeRateElement = document.querySelector(".js-exchangeRate");
+        exchangeRateElement.innerText = `${rateElement}`;
+    };
+    const onFormSubmit = (event) => {  
+        event.preventDefault();  //blocking form send
+
+        const amountElement = document.querySelector(".js-amountOfMany");
+        const currencyElement = document.querySelector(".js-toAmount");
+        
+        const amount = +amountElement.value;
+        const currency = currencyElement.value;
+
+        const rateElement = exchangeRate(currency);
+
+        const result = calculateResult(amount, currency);
+        
+        updateResultsText(amount, result, currency);
+        updateRateText(rateElement);
+    };
+    
+    const init = () => {
+        const formElement = document.querySelector(".js-form");
+
+        formElement.addEventListener("submit", onFormSubmit); 
+
+        welcome();
+    };
+    init();
 }
